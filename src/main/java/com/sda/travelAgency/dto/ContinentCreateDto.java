@@ -1,18 +1,11 @@
 package com.sda.travelAgency.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class ContinentCreateDto {
 
-    private Integer id;
+    @NotBlank(message = "Name is mandatory!")
     private String name;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

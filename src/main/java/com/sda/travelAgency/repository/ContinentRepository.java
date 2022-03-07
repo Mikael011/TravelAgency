@@ -1,15 +1,17 @@
 package com.sda.travelAgency.repository;
 
 import com.sda.travelAgency.model.Continent;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-// TODO: 3/6/2022 Intrebare: trebuie extins interfata 'PagingAndSortingRepository'
 @Repository
-public interface ContinentRepository {
+public interface ContinentRepository extends PagingAndSortingRepository<Continent, Integer> {
 
     Optional<Continent> findById(Integer id);
 
     Optional<Continent> findByName(String name);
+
+    Optional<Continent> findByNameAndId(String name, Integer id);
 }

@@ -1,9 +1,15 @@
 package com.sda.travelAgency.model;
 
+import javax.persistence.*;
 
+@Entity
 public class Continent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "continent_name")
     private String name;
 
 

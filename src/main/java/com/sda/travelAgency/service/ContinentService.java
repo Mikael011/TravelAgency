@@ -20,4 +20,5 @@ public interface ContinentService {
     List<ContinentFullDto> findAll(Integer pageNumber, Integer pageSize, String sortBy);
 
     List<ContinentFullDto> findAll();
+
 }
