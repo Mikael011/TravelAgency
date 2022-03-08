@@ -33,10 +33,10 @@ public class ContinentServiceImpl implements ContinentService {
         return ContinentMapper.continentToResponseDto(savedContinent);
     }
 
-    // SonarList disabled for this method
     @Override
-    public ContinentFullDto findContinentById(Integer id) {
-        Continent continent = continentRepository.findById(id).orElseThrow(() -> new ContinentException("Continent with id " + id + " not found!"));
+    public ContinentFullDto findContinentById(Integer id) {// SonarList disabled for this method
+        Continent continent = continentRepository.findById(id).orElseThrow(() ->
+                new ContinentException("Continent with id " + id + " not found!"));
 
         return ContinentMapper.continentToFullDto(continent);
     }
@@ -44,7 +44,16 @@ public class ContinentServiceImpl implements ContinentService {
     // SonarList disabled for this method
     @Override
     public ContinentFullDto findContinentByName(String name) {
-        Continent continent = continentRepository.findByName(name).orElseThrow(() -> new ContinentException("Continent with name " + name +" not found!"));
+        Continent continent = continentRepository.findByName(name).orElseThrow(() ->
+                new ContinentException("Continent with name " + name +" not found!"));
+
+        return ContinentMapper.continentToFullDto(continent);
+    }
+
+    @Override
+    public ContinentFullDto findContinentByNameAndId(String name, Integer id) {
+        Continent continent = continentRepository.findByNameAndId(name, id).orElseThrow(() ->
+                new ContinentException("Continent with name " + name + " and " + id + " not found!"));
 
         return ContinentMapper.continentToFullDto(continent);
     }
@@ -57,9 +66,8 @@ public class ContinentServiceImpl implements ContinentService {
     }
 
     @Override
-    public List<ContinentFullDto> findAll(Integer pageNumber, Integer pageSize, String sortBy) {
+    public List<ContinentFullDto> findAllContinents(Integer pageNumber, Integer pageSize, String sortBy) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
-
         List<ContinentFullDto> returnList = new ArrayList<>();
         continentRepository.findAll(pageable).forEach(entity -> {
             returnList.add(ContinentMapper.continentToFullDto(entity));
@@ -69,7 +77,7 @@ public class ContinentServiceImpl implements ContinentService {
     }
 
     @Override
-    public List<ContinentFullDto> findAll() {
+    public List<ContinentFullDto> findAllContinents() {
         List<ContinentFullDto> returnList = new ArrayList<>();
         continentRepository.findAll().forEach(entity -> {
             returnList.add(ContinentMapper.continentToFullDto(entity));

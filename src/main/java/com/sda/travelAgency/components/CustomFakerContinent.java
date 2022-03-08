@@ -10,7 +10,6 @@ public class CustomFakerContinent {
 
     public List<Continent> createDummyContinentList() {
         List<Continent> continentList = new ArrayList<>();
-
         Faker faker = new Faker();
 // TODO: 3/7/2022 nu sunt sigur ca este corect (faker.name().name() si (faker.idNumber().hashCode()))
         for (int i = 0; i < 500; i++) {
@@ -19,7 +18,6 @@ public class CustomFakerContinent {
             continent.setName(faker.name().name());
             continentList.add(continent);
         }
-
         return continentList;
     }
 

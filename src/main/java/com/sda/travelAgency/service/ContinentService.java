@@ -15,10 +15,12 @@ public interface ContinentService {
 
     ContinentFullDto findContinentByName(String name);
 
+    ContinentFullDto findContinentByNameAndId(String name, Integer id);
+
     void saveAllContinents(List<Continent> listOfContinents);
 
-    List<ContinentFullDto> findAll(Integer pageNumber, Integer pageSize, String sortBy);
+    List<ContinentFullDto> findAllContinents(Integer pageNumber, Integer pageSize, String sortBy);
 
-    List<ContinentFullDto> findAll();
+    List<ContinentFullDto> findAllContinents();
 
 }

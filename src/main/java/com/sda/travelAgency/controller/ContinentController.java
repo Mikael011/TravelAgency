@@ -2,6 +2,7 @@ package com.sda.travelAgency.controller;
 
 import com.sda.travelAgency.components.CustomFakerContinent;
 import com.sda.travelAgency.dto.ContinentCreateDto;
+import com.sda.travelAgency.dto.ContinentFullDto;
 import com.sda.travelAgency.dto.ContinentResponseDto;
 import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.service.ContinentService;
@@ -22,26 +23,48 @@ public class ContinentController {
 
     private final CustomFakerContinent customFakerContinent;
 
-    public ContinentController(ContinentService continentService, CustomFakerContinent customFakerContinent) {
+    public ContinentController(ContinentService continentService, CustomFakerContinent customFakerContinent) {// am avut eroare la 'customFakerContinent' pana nu am facut clasa AppConfig si in ea
         this.continentService = continentService;
         this.customFakerContinent = customFakerContinent;
     }
 
-    @GetMapping("/generateContinents")
+    @GetMapping("/generate")
     public void generateContinents() {
         List<Continent> listOfContinent = customFakerContinent.createDummyContinentList();
         continentService.saveAllContinents(listOfContinent);
     }
 
-    @PostMapping("/createContinents")
+    @PostMapping("/create")
     public ResponseEntity<ContinentResponseDto> createContinent(@RequestBody @Valid ContinentCreateDto continentCreateDto, Principal principal) {
         System.out.println(principal.getName() + " has created a new continent.");
-
         ContinentResponseDto continentResponseDto = continentService.create(continentCreateDto);
-
         return ResponseEntity.ok(continentResponseDto);
     }
 
-    // TODO: 3/7/2022 De continuat
+    @GetMapping("/fingAll")
+    public ResponseEntity<List<ContinentFullDto>> findAllContinent(@RequestParam(defaultValue = "0") Integer pageNumber,
+                                                                   @RequestParam(defaultValue = "5") Integer pageSize,
+                                                                   @RequestParam(defaultValue = "id") String sortBy) {
+        List<ContinentFullDto> listOfContinent = continentService.findAllContinents(pageNumber, pageSize, sortBy);
+        return ResponseEntity.ok(listOfContinent);
+    }
 
+    @GetMapping("/findByName")
+    public ResponseEntity<ContinentFullDto> findByName(@RequestParam String continentName) {
+        ContinentFullDto continentFullDto = continentService.findContinentByName(continentName);
+        return ResponseEntity.ok(continentFullDto);
+    }
+
+    @GetMapping("/findById")
+    public ResponseEntity<ContinentFullDto> findById(@RequestParam Integer continentId) {
+        ContinentFullDto continentFullDto = continentService.findContinentById(continentId);
+        return ResponseEntity.ok(continentFullDto);
+    }
+
+    @GetMapping("/findByNameAndId")
+    public ResponseEntity<ContinentFullDto> findByNameAndId(@RequestParam String continentName,
+                                                            @RequestParam Integer continentId) {
+        ContinentFullDto continentFullDto = continentService.findContinentByNameAndId(continentName, continentId);
+        return ResponseEntity.ok(continentFullDto);
+    }
 }
