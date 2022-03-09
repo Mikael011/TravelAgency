@@ -1,11 +1,11 @@
 package com.sda.travelAgency.controller;
 
 import com.sda.travelAgency.components.CustomFakerContinent;
-import com.sda.travelAgency.dto.ContinentCreateDto;
-import com.sda.travelAgency.dto.ContinentFullDto;
-import com.sda.travelAgency.dto.ContinentResponseDto;
+import com.sda.travelAgency.dto.continent.ContinentCreateDto;
+import com.sda.travelAgency.dto.continent.ContinentFullDto;
+import com.sda.travelAgency.dto.continent.ContinentResponseDto;
 import com.sda.travelAgency.model.Continent;
-import com.sda.travelAgency.service.ContinentService;
+import com.sda.travelAgency.service.impl.continent.ContinentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

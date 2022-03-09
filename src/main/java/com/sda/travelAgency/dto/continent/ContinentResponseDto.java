@@ -1,4 +1,4 @@
-package com.sda.travelAgency.dto;
+package com.sda.travelAgency.dto.continent;
 
 public class ContinentResponseDto {
 

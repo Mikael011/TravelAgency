@@ -1,13 +1,12 @@
-package com.sda.travelAgency.service.impl;
+package com.sda.travelAgency.service.impl.continent;
 
-import com.sda.travelAgency.dto.ContinentCreateDto;
-import com.sda.travelAgency.dto.ContinentFullDto;
-import com.sda.travelAgency.dto.ContinentResponseDto;
+import com.sda.travelAgency.dto.continent.ContinentCreateDto;
+import com.sda.travelAgency.dto.continent.ContinentFullDto;
+import com.sda.travelAgency.dto.continent.ContinentResponseDto;
 import com.sda.travelAgency.exception.ContinentException;
 import com.sda.travelAgency.mapper.ContinentMapper;
 import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.repository.ContinentRepository;
-import com.sda.travelAgency.service.ContinentService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
