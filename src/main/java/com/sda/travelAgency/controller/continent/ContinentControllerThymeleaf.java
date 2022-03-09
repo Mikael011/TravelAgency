@@ -1,6 +1,6 @@
-package com.sda.travelAgency.controller;
+package com.sda.travelAgency.controller.continent;
 
-import com.sda.travelAgency.dto.ContinentFullDto;
+import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.model.LoginForm;
 import com.sda.travelAgency.service.ContinentService;
 import org.springframework.beans.factory.annotation.Value;

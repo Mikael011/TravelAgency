@@ -1,10 +1,10 @@
-package com.sda.travelAgency.dto;
+package com.sda.travelAgency.dto.airport;
 
-public class ContinentFullDto {
+public class AirportFullDto {
 
     private Integer id;
     private String name;
-
+    private Integer cityId;
 
     public Integer getId() {
         return id;
@@ -20,5 +20,13 @@ public class ContinentFullDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 }

@@ -1,15 +1,16 @@
-package com.sda.travelAgency.dto;
+package com.sda.travelAgency.dto.continent;
 
-public class ContinentResponseDto {
+public class ContinentFullDto {
 
     private Integer id;
     private String name;
+
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id){
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -18,6 +19,6 @@ public class ContinentResponseDto {
     }
 
     public void setName(String name) {
-        this.name = this.name;
+        this.name = name;
     }
 }
