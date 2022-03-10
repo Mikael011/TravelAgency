@@ -10,6 +10,7 @@ public class ContinentMapper {
     public static Continent continentToEntity(ContinentCreateDto continentCreateDto) {
         Continent continent = new Continent();
         continent.setName(continentCreateDto.getName());
+
         return continent;
     }
 
@@ -17,13 +18,15 @@ public class ContinentMapper {
         ContinentResponseDto continentResponseDto = new ContinentResponseDto();
         continentResponseDto.setId(continent.getId());
         continentResponseDto.setName(continent.getName());
-        return continentResponseDto;
+
+       return continentResponseDto;
     }
 
     public static ContinentFullDto continentToFullDto(Continent continent) {
         ContinentFullDto continentFullDto = new ContinentFullDto();
         continentFullDto.setId(continent.getId());
         continentFullDto.setName(continent.getName());
+
         return continentFullDto;
     }
 }

@@ -38,26 +38,30 @@ public class ContinentController {
     public ResponseEntity<ContinentResponseDto> createContinent(@RequestBody @Valid ContinentCreateDto continentCreateDto, Principal principal) {
         System.out.println(principal.getName() + " has created a new continent.");
         ContinentResponseDto continentResponseDto = continentService.create(continentCreateDto);
+
         return ResponseEntity.ok(continentResponseDto);
     }
 
-    @GetMapping("/fingAll")
+    @GetMapping("/findAll")
     public ResponseEntity<List<ContinentFullDto>> findAllContinent(@RequestParam(defaultValue = "0") Integer pageNumber,
                                                                    @RequestParam(defaultValue = "5") Integer pageSize,
                                                                    @RequestParam(defaultValue = "id") String sortBy) {
         List<ContinentFullDto> listOfContinent = continentService.findAllContinents(pageNumber, pageSize, sortBy);
+
         return ResponseEntity.ok(listOfContinent);
     }
 
     @GetMapping("/findByName")
     public ResponseEntity<ContinentFullDto> findByName(@RequestParam String continentName) {
         ContinentFullDto continentFullDto = continentService.findContinentByName(continentName);
+
         return ResponseEntity.ok(continentFullDto);
     }
 
     @GetMapping("/findById")
     public ResponseEntity<ContinentFullDto> findById(@RequestParam Integer continentId) {
         ContinentFullDto continentFullDto = continentService.findContinentById(continentId);
+
         return ResponseEntity.ok(continentFullDto);
     }
 
@@ -65,6 +69,7 @@ public class ContinentController {
     public ResponseEntity<ContinentFullDto> findByNameAndId(@RequestParam String continentName,
                                                             @RequestParam Integer continentId) {
         ContinentFullDto continentFullDto = continentService.findContinentByNameAndId(continentName, continentId);
+
         return ResponseEntity.ok(continentFullDto);
     }
 }
