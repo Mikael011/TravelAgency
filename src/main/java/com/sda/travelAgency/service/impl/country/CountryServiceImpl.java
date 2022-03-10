@@ -4,7 +4,7 @@ import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.dto.country.CountryResponseDto;
-import com.sda.travelAgency.exception.ContinentException;
+
 import com.sda.travelAgency.exception.CountryException;
 import com.sda.travelAgency.mapper.ContinentMapper;
 import com.sda.travelAgency.mapper.CountryMapper;

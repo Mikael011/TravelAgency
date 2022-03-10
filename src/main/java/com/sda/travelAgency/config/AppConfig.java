@@ -20,7 +20,7 @@ public class AppConfig {
     public CustomFakerContinent customFakerContinent() {
         return new CustomFakerContinent();
     }
-<<<<<<< HEAD
+
     @Bean
     public CustomFakerCountry customFakerCountry() {
         return new CustomFakerCountry();
@@ -64,11 +64,12 @@ public class AppConfig {
                 return null;
             }
         };
-=======
 
+
+    }
     @Bean
-    public CustomFakerAirport customFakerAirport() {
+    public CustomFakerAirport customFakerAirport () {
         return new CustomFakerAirport();
->>>>>>> 3f9c0b637944f0abf5d1369e587913e55817f5c5
+
     }
 }

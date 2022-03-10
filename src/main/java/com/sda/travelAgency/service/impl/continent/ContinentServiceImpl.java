@@ -3,11 +3,9 @@ package com.sda.travelAgency.service.impl.continent;
 import com.sda.travelAgency.dto.continent.ContinentCreateDto;
 import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.dto.continent.ContinentResponseDto;
-<<<<<<< HEAD:src/main/java/com/sda/travelAgency/service/impl/continent/ContinentServiceImpl.java
-import com.sda.travelAgency.exception.ContinentException;
-=======
+
 import com.sda.travelAgency.exception.CustomException;
->>>>>>> 3f9c0b637944f0abf5d1369e587913e55817f5c5:src/main/java/com/sda/travelAgency/service/impl/ContinentServiceImpl.java
+
 import com.sda.travelAgency.mapper.ContinentMapper;
 import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.repository.ContinentRepository;
