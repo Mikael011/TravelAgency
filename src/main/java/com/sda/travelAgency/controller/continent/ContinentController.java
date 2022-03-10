@@ -1,4 +1,4 @@
-package com.sda.travelAgency.controller;
+package com.sda.travelAgency.controller.continent;
 
 import com.sda.travelAgency.components.CustomFakerContinent;
 import com.sda.travelAgency.dto.continent.ContinentCreateDto;

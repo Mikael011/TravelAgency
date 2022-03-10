@@ -1,4 +1,4 @@
-package com.sda.travelAgency.controller;
+package com.sda.travelAgency.controller.country;
 
 
 import com.sda.travelAgency.components.CustomFakerCountry;

@@ -1,4 +1,4 @@
-package com.sda.travelAgency.controller;
+package com.sda.travelAgency.controller.continent;
 
 import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.model.LoginForm;
