@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CustomFakerAirport {
 
-    public List<Airport> createDummyContinentList() {
+    public List<Airport> createDummyAirportList() {//rename method name
         List<Airport> airportList = new ArrayList<>();
         Faker faker = new Faker();
 // TODO: 3/7/2022 nu sunt sigur ca este corect (faker.name().name() si (faker.idNumber().hashCode()))

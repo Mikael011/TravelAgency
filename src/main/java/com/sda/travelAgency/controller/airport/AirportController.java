@@ -9,7 +9,6 @@ import com.sda.travelAgency.service.AirportService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
@@ -30,7 +29,7 @@ public class AirportController {
 
     @GetMapping("/generate")
     public void generateAirports() {
-        List<Airport> listOfAirport = customFakerAirport.createDummyContinentList();
+        List<Airport> listOfAirport = customFakerAirport.createDummyAirportList();
         airportService.saveAllAirports(listOfAirport);
     }
 
