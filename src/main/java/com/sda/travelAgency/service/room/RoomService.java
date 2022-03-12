@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RoomService {
 
-    RoomFullDto findByRoomById(Integer id);
+    RoomFullDto findRoomById(Integer id);
 
     void saveAllRooms(List<Room> lisOfRooms);
 

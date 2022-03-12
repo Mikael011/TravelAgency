@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface RoomRepository extends PagingAndSortingRepository {
+public interface RoomRepository extends PagingAndSortingRepository<Room, Integer> {
 
     Optional<Room> findByNumber(Integer number);
 

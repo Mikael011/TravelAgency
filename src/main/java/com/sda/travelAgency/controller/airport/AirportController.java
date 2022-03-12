@@ -26,7 +26,7 @@ public class AirportController {
         return ResponseEntity.ok(listOfAirport);
     }
 
-    @GetMapping("/findByCityID")
+    @GetMapping("/findByCityId")
     public ResponseEntity<AirportFullDto> findByCityID(@RequestParam Integer airportCityId) {
         AirportFullDto airportFullDto = airportService.findByCityId(airportCityId);
 
