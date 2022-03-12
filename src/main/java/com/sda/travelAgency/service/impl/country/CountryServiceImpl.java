@@ -1,23 +1,21 @@
 package com.sda.travelAgency.service.impl.country;
 
-import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.dto.country.CountryResponseDto;
-import com.sda.travelAgency.exception.ContinentException;
 import com.sda.travelAgency.exception.CountryException;
-import com.sda.travelAgency.mapper.ContinentMapper;
 import com.sda.travelAgency.mapper.CountryMapper;
-import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.model.Country;
 import com.sda.travelAgency.repository.CountryRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CountryServiceImpl implements CountryService {
 
     private final CountryRepository countryRepository;

@@ -3,7 +3,7 @@ package com.sda.travelAgency.service.impl.continent;
 import com.sda.travelAgency.dto.continent.ContinentCreateDto;
 import com.sda.travelAgency.dto.continent.ContinentFullDto;
 import com.sda.travelAgency.dto.continent.ContinentResponseDto;
-import com.sda.travelAgency.exception.ContinentException;
+import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.ContinentMapper;
 import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.repository.ContinentRepository;
@@ -35,7 +35,7 @@ public class ContinentServiceImpl implements ContinentService {
     @Override
     public ContinentFullDto findContinentById(Integer id) {// SonarList disabled for this method
         Continent continent = continentRepository.findById(id).orElseThrow(() ->
-                new ContinentException("Continent with id " + id + " not found!"));
+                new CustomException("Continent with id " + id + " not found!"));
 
         return ContinentMapper.continentToFullDto(continent);
     }
@@ -44,7 +44,7 @@ public class ContinentServiceImpl implements ContinentService {
     @Override
     public ContinentFullDto findContinentByName(String name) {
         Continent continent = continentRepository.findByName(name).orElseThrow(() ->
-                new ContinentException("Continent with name " + name +" not found!"));
+                new CustomException("Continent with name " + name +" not found!"));
 
         return ContinentMapper.continentToFullDto(continent);
     }
@@ -52,7 +52,7 @@ public class ContinentServiceImpl implements ContinentService {
     @Override
     public ContinentFullDto findContinentByNameAndId(String name, Integer id) {
         Continent continent = continentRepository.findByNameAndId(name, id).orElseThrow(() ->
-                new ContinentException("Continent with name " + name + " and " + id + " not found!"));
+                new CustomException("Continent with name " + name + " and " + id + " not found!"));
 
         return ContinentMapper.continentToFullDto(continent);
     }
