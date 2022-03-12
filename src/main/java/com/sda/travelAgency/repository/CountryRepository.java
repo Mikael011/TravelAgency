@@ -1,6 +1,5 @@
 package com.sda.travelAgency.repository;
 
-import com.sda.travelAgency.model.Continent;
 import com.sda.travelAgency.model.Country;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

@@ -1,9 +1,7 @@
-package com.sda.travelAgency.service.impl.country;
+package com.sda.travelAgency.service.country;
 
-import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
-import com.sda.travelAgency.dto.country.CountryResponseDto;
-import com.sda.travelAgency.exception.CountryException;
+import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.CountryMapper;
 import com.sda.travelAgency.model.Country;
 import com.sda.travelAgency.repository.CountryRepository;
@@ -24,32 +22,11 @@ public class CountryServiceImpl implements CountryService {
         this.countryRepository = countryRepository;
     }
 
-    @Override
-    public CountryResponseDto create(CountryCreateDto countryCreateDto) {
-        Country country = CountryMapper.countryToEntity(countryCreateDto);
-        Country savedCountry = countryRepository.save(country);
-        return CountryMapper.countryToResponseDto(savedCountry);
-    }
-
-    @Override
-    public CountryFullDto findCountryByID(Integer id) {
-        Country country = countryRepository.findById(id).orElseThrow(() ->
-                new CountryException("Country with id " + id + " not found!"));
-        return CountryMapper.countryToFullDto(country);
-    }
-
-    @Override
-    public CountryFullDto findCountryByName(String name) {
-        Country country = countryRepository.findByName(name).orElseThrow(() ->
-                new CountryException("Country with name " + name + " not found!"));
-
-        return CountryMapper.countryToFullDto(country);
-    }
 
     @Override
     public CountryFullDto findCountryByNameAndId(String name, Integer id) {
         Country country = countryRepository.findByNameAndId(name, id).orElseThrow(() ->
-                new CountryException("Country with name " + name + " and " + id + " not found!"));
+                new CustomException("Country with name " + name + " and " + id + " not found!"));
         return CountryMapper.countryToFullDto(country);
     }
 

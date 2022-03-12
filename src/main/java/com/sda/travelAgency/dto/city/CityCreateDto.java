@@ -1,8 +1,8 @@
-package com.sda.travelAgency.dto.continent;
+package com.sda.travelAgency.dto.city;
 
 import javax.validation.constraints.NotBlank;
 
-public class ContinentCreateDto {
+public class CityCreateDto {
 
     @NotBlank(message = "Name is mandatory!")
     private String name;

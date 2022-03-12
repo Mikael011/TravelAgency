@@ -9,12 +9,12 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "country_name")
+    @Column(name = "city_name")
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "continent_id", referencedColumnName = "id")
-    private Continent continent;
+    @JoinColumn(name = "city_id", referencedColumnName = "id")
+    private City city;
 
     public Integer getId() {
         return id;
@@ -32,11 +32,11 @@ public class Country {
         this.name = name;
     }
 
-    public Continent getContinent() {
-        return continent;
+    public City getCity() {
+        return city;
     }
 
-    public void setContinent(Continent continent) {
-        this.continent = continent;
+    public void setCity(City city) {
+        this.city = city;
     }
 }
