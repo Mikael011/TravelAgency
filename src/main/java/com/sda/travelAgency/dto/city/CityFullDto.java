@@ -1,15 +1,8 @@
-package com.sda.travelAgency.model;
+package com.sda.travelAgency.dto.city;
 
-import javax.persistence.*;
+public class CityFullDto {
 
-@Entity
-public class Continent {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "continent_name")
     private String name;
 
 

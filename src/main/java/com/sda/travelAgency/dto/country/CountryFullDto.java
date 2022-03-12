@@ -1,12 +1,12 @@
 package com.sda.travelAgency.dto.country;
 
-import com.sda.travelAgency.model.Continent;
+import com.sda.travelAgency.model.City;
 
 public class CountryFullDto {
 
     private Integer id;
     private String name;
-    private Continent continent;
+    private City city;
 
     public Integer getId() {
         return id;
@@ -24,11 +24,11 @@ public class CountryFullDto {
         this.name = name;
     }
 
-    public Continent getContinent() {
-        return continent;
+    public City getCity() {
+        return city;
     }
 
-    public void setContinent(Continent continent) {
-        this.continent = continent;
+    public void setCity(City city) {
+        this.city = city;
     }
 }
