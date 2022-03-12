@@ -9,10 +9,7 @@ import java.util.Optional;
 @Repository
 public interface AirportRepository extends PagingAndSortingRepository<Airport, Integer> {
 
-    Optional<Airport> findById(Integer id);
+    Optional<Airport> findByCityId(Integer id);
 
-    Optional<Airport> findByName(String name);
-
-    Optional<Airport> findByNameAndId(String name, Integer id);
 
 }
