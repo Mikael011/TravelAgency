@@ -1,15 +1,15 @@
-package com.sda.travelAgency.dto.country;
+package com.sda.travelAgency.dto.ticket;
 
-import com.sda.travelAgency.model.City;
+import com.sda.travelAgency.model.Ticket;
 import javax.validation.constraints.NotBlank;
 
-public class CountryCreateDto {
+public class TicketCreateDto {
 
     @NotBlank(message = "Name is mandatory!")
     private String name;
 
     @NotBlank(message = "Name is mandatory")
-    private City city;
+    private Ticket ticket;
 
     public String getName() {
         return name;
@@ -17,5 +17,13 @@ public class CountryCreateDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }
