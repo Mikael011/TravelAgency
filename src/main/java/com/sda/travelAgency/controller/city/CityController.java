@@ -17,7 +17,7 @@ public class CityController {
         this.cityService = cityService;
 
     }
-
+    // http://localhost:8081/api/v1/city/findAll
     @GetMapping("/findAll")
     public ResponseEntity<List<CityFullDto>> findAllCities(@RequestParam(defaultValue = "0") Integer pageNumber,
                                                               @RequestParam(defaultValue = "5") Integer pageSize,
