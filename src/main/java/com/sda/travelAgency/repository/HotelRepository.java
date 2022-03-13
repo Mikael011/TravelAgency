@@ -1,11 +1,17 @@
 package com.sda.travelAgency.repository;
+import com.sda.travelAgency.model.Hotel;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
-public interface HotelRepository extends PagingAndSortingRepository {
+@Repository
+public interface HotelRepository extends PagingAndSortingRepository<Hotel, Integer> {
 
-    Optional<HotelRepository> findById(Integer id);
+    Optional<Hotel> findById(Integer id);
 
-    Optional<HotelRepository> findByName(String name);
+    Optional<Hotel> findByName(String name);
+
+
 
 }
