@@ -24,15 +24,10 @@ public class TicketServiceImpl implements TicketService {
 
 
     @Override
-    public TicketFullDto findTicketBy(Integer id) {
-        Ticket ticket = ticketRepository.findByTicketId(id).orElseThrow(() ->
+    public TicketFullDto findTicketById(Integer id) {
+        Ticket ticket = ticketRepository.findById(id).orElseThrow(() ->
                 new CustomException("Ticket with" + id + " not found!"));
         return TicketMapper.ticketFullDto(ticket);
-    }
-
-    @Override
-    public TicketFullDto findTicketsById(Integer id) {
-        return null;
     }
 
     @Override

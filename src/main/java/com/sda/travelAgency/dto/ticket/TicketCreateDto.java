@@ -1,6 +1,5 @@
 package com.sda.travelAgency.dto.ticket;
 
-import com.sda.travelAgency.model.Ticket;
 import javax.validation.constraints.NotBlank;
 
 public class TicketCreateDto {
@@ -9,7 +8,7 @@ public class TicketCreateDto {
     private String name;
 
     @NotBlank(message = "Name is mandatory")
-    private Ticket ticket;
+    private Integer id;
 
     public String getName() {
         return name;
@@ -19,11 +18,11 @@ public class TicketCreateDto {
         this.name = name;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public Integer getId() {
+        return id;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
