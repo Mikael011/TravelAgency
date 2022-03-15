@@ -11,5 +11,4 @@ public interface TicketRepository extends PagingAndSortingRepository<Ticket, Int
 
     // TODO: 3/14/2022 a fost o problema de nume de metoda, nu a mers aplicatia pana nu am redenumit din findByTicketId in findById
     Optional<Ticket> findById(Integer id);
-
 }

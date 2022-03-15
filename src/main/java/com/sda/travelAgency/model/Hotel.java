@@ -8,28 +8,28 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Data
 public class Hotel {
 
-    @javax.persistence.Id
+    @javax.persistence.Id // TODO: 3/15/2022 asta pentru ce e?
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer id;
 
-@Column(name = "hotel_name")
+    @Column(name = "hotel_name")
+
     private String name;
 
-@Column(name = "numberOfStars")
+    @Column(name = "numberOfStars")
     private Integer numberOfStars;
 
-@Column(name = "description")
+    @Column(name = "description")
     private String description;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     private City cityId;
 
-
 }
+

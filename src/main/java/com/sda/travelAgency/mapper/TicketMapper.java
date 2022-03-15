@@ -8,7 +8,7 @@ public class TicketMapper {
 
     public static Ticket ticketToEntity(TicketCreateDto ticketCreateDto) {
         Ticket ticket = new Ticket();
-        ticket.setId(ticketCreateDto.getId());
+        ticket.setId(ticketCreateDto.getTicket().getId());
 
         return ticket;
     }
