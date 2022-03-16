@@ -1,4 +1,19 @@
 package com.sda.travelAgency.service.reservation;
 
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.model.Reservation;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Date;
+import java.util.List;
+
 public interface ReservationService {
+
+    ReservationFullDto findReservationById(Integer id);
+
+    void saveAllReservations(List<Reservation> listOfReservations);
+
+    List<ReservationFullDto> findAllReservations(Integer pageNumber, Integer pageSize, String sortBy);
+
+    List<ReservationFullDto> findAllReservations();
 }

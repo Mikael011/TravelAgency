@@ -32,13 +32,13 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void saveAllCountrys(List<Country> listOfCountrys) {
+    public void saveAllCountries(List<Country> listOfCountrys) {
         countryRepository.saveAll(listOfCountrys);
-        System.out.println("All countrys are created");
+        System.out.println("All countries are created");
     }
 
     @Override
-    public List<CountryFullDto> findAllCountrys(Integer pageNumber, Integer pageSize, String sortBy) {
+    public List<CountryFullDto> findAllCountries(Integer pageNumber, Integer pageSize, String sortBy) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
         List<CountryFullDto> returnList = new ArrayList<>();
         countryRepository.findAll(pageable).forEach(entity -> {
@@ -48,7 +48,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<CountryFullDto> findAllCountrys() {
+    public List<CountryFullDto> findAllCountries() {
         List<CountryFullDto> returnList = new ArrayList<>();
         countryRepository.findAll().forEach(entity -> {
             returnList.add(CountryMapper.countryToFullDto(entity));

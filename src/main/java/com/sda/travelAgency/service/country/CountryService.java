@@ -1,6 +1,5 @@
 package com.sda.travelAgency.service.country;
 
-import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.model.Country;
 
@@ -10,11 +9,11 @@ public interface CountryService {
 
     CountryFullDto findCountryByNameAndId(String name, Integer id);
 
-    void saveAllCountrys(List<Country> listOfCountrys);
+    void saveAllCountries(List<Country> listOfCountrys);
 
-    List<CountryFullDto> findAllCountrys(Integer pageNumber, Integer pageSize, String sortBy);
+    List<CountryFullDto> findAllCountries(Integer pageNumber, Integer pageSize, String sortBy);
 
-    List<CountryFullDto> findAllCountrys();
+    List<CountryFullDto> findAllCountries();
 
 
 }
