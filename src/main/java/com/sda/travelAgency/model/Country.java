@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -19,8 +20,7 @@ public class Country {
     @Column(name = "city_name")
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "city_id", referencedColumnName = "id")
-    private City city;
+    @OneToMany(mappedBy = "country")
+    private Set<City> city;
 
 }

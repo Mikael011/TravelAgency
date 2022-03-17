@@ -1,9 +1,13 @@
 package com.sda.travelAgency.controller.country;
 
+import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.service.country.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -15,6 +19,14 @@ public class CountryController {
 
     public CountryController(CountryService countryService) {
         this.countryService = countryService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<CountryFullDto> createCountry(@RequestBody CountryCreateDto countryCreateDto, Principal principal) {
+//        System.out.println(principal.getName() + " has created a new country");//se poate decomenta dupa prima entitate creata in baza de tate
+
+        CountryFullDto countryFullDto = countryService.create(countryCreateDto);
+        return ResponseEntity.ok(countryFullDto);
     }
 
     @GetMapping("/findAll")

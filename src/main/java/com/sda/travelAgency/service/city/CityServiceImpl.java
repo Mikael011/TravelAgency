@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.city;
 
+import com.sda.travelAgency.dto.city.CityCreateDto;
 import com.sda.travelAgency.dto.city.CityFullDto;
 import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.CityMapper;
@@ -21,6 +22,14 @@ public class CityServiceImpl implements CityService {
 
     public CityServiceImpl(CityRepository continentRepository) {
         this.cityRepository = continentRepository;
+    }
+
+    @Override
+    public CityFullDto create(CityCreateDto cityCreateDto) {
+        City city = CityMapper.cityToEntity(cityCreateDto);
+        City savedCity = cityRepository.save(city);
+
+        return CityMapper.cityFullDto(savedCity);
     }
 
     // SonarList disabled for this method
