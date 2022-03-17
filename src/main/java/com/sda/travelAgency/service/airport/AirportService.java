@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface AirportService {
 
-    AirportFullDto findByCityId(Integer id);
+    AirportFullDto create(AirportCreateDto airportCreateDto);
 
+    AirportFullDto findByCityId(Integer id);
 
     void saveAllAirports(List<Airport> listOfAirports);
 

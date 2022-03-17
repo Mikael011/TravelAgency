@@ -16,7 +16,7 @@ public class CountryMapper {
         CountryFullDto countryFullDto = new CountryFullDto();
         countryFullDto.setId(country.getId());
         countryFullDto.setName(country.getName());
-        countryFullDto.setCity(country.getCity());
+//        countryFullDto.setCity(country.getCity());
         return countryFullDto;
     }
 

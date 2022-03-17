@@ -15,11 +15,12 @@ public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(name = "city_id")
+    private Integer cityId;
 
     @Column(name = "airport_name")
     private String name;
 
-    @Column(name = "city_id")
-    private Integer cityId;
 
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class City {
     @Column(name = "city_name")
     private String name;
 
-    @Column(name = "country_id")
-    private Integer countryId;
+    @ManyToOne
+    private Country country;
 
 }

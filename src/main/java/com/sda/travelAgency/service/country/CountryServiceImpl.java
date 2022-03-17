@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.country;
 
+import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.CountryMapper;
@@ -23,6 +24,14 @@ public class CountryServiceImpl implements CountryService {
         this.countryRepository = countryRepository;
     }
 
+
+    @Override
+    public CountryFullDto create(CountryCreateDto countryCreateDto) {
+        Country country = CountryMapper.countryToEntity(countryCreateDto);
+        Country saveCountry = countryRepository.save(country);
+
+        return CountryMapper.countryToFullDto(saveCountry);
+    }
 
     @Override
     public CountryFullDto findCountryByNameAndId(String name, Integer id) {

@@ -1,11 +1,14 @@
 package com.sda.travelAgency.service.country;
 
+import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.model.Country;
 
 import java.util.List;
 
 public interface CountryService {
+
+    CountryFullDto create(CountryCreateDto countryCreateDto);
 
     CountryFullDto findCountryByNameAndId(String name, Integer id);
 

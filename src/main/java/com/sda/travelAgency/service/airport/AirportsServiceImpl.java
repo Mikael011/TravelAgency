@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.airport;
 
+import com.sda.travelAgency.dto.airport.AirportCreateDto;
 import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.AirportMapper;
@@ -24,6 +25,13 @@ public class AirportsServiceImpl implements AirportService {
     }
 
 
+    @Override
+    public AirportFullDto create(AirportCreateDto airportCreateDto) {
+        Airport airport= AirportMapper.airportToEntity(airportCreateDto);
+        Airport savedAirport = airportRepository.save(airport);
+
+        return AirportMapper.airportToFullDto(savedAirport);
+    }
 
     @Override
     public AirportFullDto findByCityId(Integer id) {
