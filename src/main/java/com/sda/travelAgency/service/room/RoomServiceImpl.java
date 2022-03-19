@@ -1,8 +1,13 @@
 package com.sda.travelAgency.service.room;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.room.RoomCreateDto;
 import com.sda.travelAgency.dto.room.RoomFullDto;
 import com.sda.travelAgency.exception.CustomException;
+import com.sda.travelAgency.mapper.ReservationMapper;
 import com.sda.travelAgency.mapper.RoomMapper;
+import com.sda.travelAgency.model.Reservation;
 import com.sda.travelAgency.model.Room;
 import com.sda.travelAgency.repository.RoomRepository;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +25,14 @@ public class RoomServiceImpl implements RoomService{
 
     public RoomServiceImpl(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
+    }
+
+    @Override
+    public RoomFullDto create(RoomCreateDto roomCreateDto) {
+        Room room = RoomMapper.roomToEntity(roomCreateDto);
+        Room savedRoom = roomRepository.save(room);
+
+        return RoomMapper.roomToFullDto(savedRoom);
     }
 
     @Override

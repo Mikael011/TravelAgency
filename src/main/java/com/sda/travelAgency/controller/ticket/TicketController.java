@@ -1,5 +1,8 @@
 package com.sda.travelAgency.controller.ticket;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.ticket.TicketCreateDto;
 import com.sda.travelAgency.dto.ticket.TicketFullDto;
 import com.sda.travelAgency.service.ticket.TicketService;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,13 @@ public class TicketController {
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<TicketFullDto> create(@RequestParam TicketCreateDto ticketCreateDto) {
+        TicketFullDto ticketFullDto = ticketService.create(ticketCreateDto);
+
+        return ResponseEntity.ok(ticketFullDto);
     }
 
     @GetMapping("/findTicketById")

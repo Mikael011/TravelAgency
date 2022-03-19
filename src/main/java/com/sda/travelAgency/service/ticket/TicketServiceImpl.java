@@ -1,8 +1,13 @@
 package com.sda.travelAgency.service.ticket;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.ticket.TicketCreateDto;
 import com.sda.travelAgency.dto.ticket.TicketFullDto;
 import com.sda.travelAgency.exception.CustomException;
+import com.sda.travelAgency.mapper.ReservationMapper;
 import com.sda.travelAgency.mapper.TicketMapper;
+import com.sda.travelAgency.model.Reservation;
 import com.sda.travelAgency.model.Ticket;
 import com.sda.travelAgency.repository.TicketRepository;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +27,13 @@ public class TicketServiceImpl implements TicketService {
         this.ticketRepository = ticketRepository;
     }
 
+    @Override
+    public TicketFullDto create(TicketCreateDto ticketCreateDto) {
+        Ticket ticket = TicketMapper.ticketToEntity(ticketCreateDto);
+        Ticket savedTicket = ticketRepository.save(ticket);
+
+        return TicketMapper.ticketFullDto(savedTicket);
+    }
 
     @Override
     public TicketFullDto findTicketById(Integer id) {

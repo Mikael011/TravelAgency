@@ -1,5 +1,6 @@
 package com.sda.travelAgency.controller.reservation;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
 import com.sda.travelAgency.dto.reservation.ReservationFullDto;
 import com.sda.travelAgency.service.reservation.ReservationService;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,13 @@ public class ReservationController {
 
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<ReservationFullDto> create(@RequestParam ReservationCreateDto reservationCreateDto) {
+        ReservationFullDto reservationFullDto = reservationService.create(reservationCreateDto);
+
+        return ResponseEntity.ok(reservationFullDto);
     }
 
     @GetMapping("/findAll")

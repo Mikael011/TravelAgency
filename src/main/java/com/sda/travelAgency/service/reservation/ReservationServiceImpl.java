@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.reservation;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
 import com.sda.travelAgency.dto.reservation.ReservationFullDto;
 import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.ReservationMapper;
@@ -20,6 +21,14 @@ public class ReservationServiceImpl implements ReservationService{
 
     public ReservationServiceImpl(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
+    }
+
+    @Override
+    public ReservationFullDto create(ReservationCreateDto reservationCreateDto) {
+        Reservation reservation = ReservationMapper.reservationToEntity(reservationCreateDto);
+        Reservation savedReservation = reservationRepository.save(reservation);
+
+        return ReservationMapper.reservationFullDto(savedReservation);
     }
 
     @Override
