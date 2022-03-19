@@ -15,9 +15,9 @@ public class CityMapper {
 
     public static CityFullDto cityFullDto(City city) {
         CityFullDto cityFullDto = new CityFullDto();
-        city.setId(city.getId());
+        cityFullDto.setId(city.getId());
         cityFullDto.setName(city.getName());
-
+        cityFullDto.setCountry(city.getCountry());
         return cityFullDto;
     }
 }

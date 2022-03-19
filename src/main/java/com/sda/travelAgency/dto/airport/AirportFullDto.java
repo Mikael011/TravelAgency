@@ -6,7 +6,7 @@ public class AirportFullDto {
 
     private Integer id;
     private String name;
-    private Integer cityId;
+    private City city;
 
     public Integer getId() {
         return id;
@@ -24,11 +24,11 @@ public class AirportFullDto {
         this.name = name;
     }
 
-    public Integer getCityId() {
-        return cityId;
+    public City getCityId() {
+        return city;
     }
 
     public void setCity(City city) {
-        this.cityId = cityId;
+        this.city = city;
     }
 }

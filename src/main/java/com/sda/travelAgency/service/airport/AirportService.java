@@ -17,4 +17,6 @@ public interface AirportService {
     List<AirportFullDto> findAllAirports(Integer pageNumber, Integer pageSize, String sortBy);
 
     List<AirportFullDto> findAllAirports();
+
+    void addAirportsToCity(Integer airportId, Integer cityId);
 }
