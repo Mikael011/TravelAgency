@@ -31,7 +31,7 @@ public class CountryController {
 
     @GetMapping("/findAll")
     public ResponseEntity<List<CountryFullDto>> findAllCountry(@RequestParam(defaultValue = "0") Integer pageNumber,
-                                                               @RequestParam(defaultValue = "5") Integer pageSize,
+                                                               @RequestParam(defaultValue = "10") Integer pageSize,
                                                                @RequestParam(defaultValue = "id") String sortBy) {
         List<CountryFullDto> listOfCountry = countryService.findAllCountries(pageNumber, pageSize, sortBy);
         return ResponseEntity.ok(listOfCountry);

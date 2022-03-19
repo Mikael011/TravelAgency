@@ -9,6 +9,8 @@ public class HotelMapper {
     public static Hotel hotelToEntity(HotelCreateDto hotelCreateDto) {
         Hotel hotel = new Hotel();
         hotel.setName(hotelCreateDto.getName());
+        hotel.setNumberOfStars(hotelCreateDto.getNumberOfStars());
+        hotel.setDescription(hotelCreateDto.getDescription());
         return hotel;
     }
 
@@ -16,7 +18,8 @@ public class HotelMapper {
         HotelFullDto hotelFullDto = new HotelFullDto();
         hotelFullDto.setId(hotel.getId());
         hotelFullDto.setName(hotel.getName());
-        hotelFullDto.setCity(hotel.getCity());
+        hotelFullDto.setNumberOfStars(hotel.getNumberOfStars());
+        hotelFullDto.setDescription(hotel.getDescription());
         return hotelFullDto;
     }
 }

@@ -31,9 +31,17 @@ public class AirportController {
         return ResponseEntity.ok(airportFullDto);
     }
 
+    @PostMapping("/addAirportToCity")
+    public ResponseEntity<AirportFullDto> addAirportToCity(@RequestParam Integer airportId, @RequestParam Integer cityId) {
+
+        airportService.addAirportsToCity(airportId, cityId);
+
+        return null;
+    }
+
     @GetMapping("/findAll")
     public ResponseEntity<List<AirportFullDto>> findAllAirport(@RequestParam(defaultValue = "0") Integer pageNumber,
-                                                               @RequestParam(defaultValue = "5") Integer pageSize,
+                                                               @RequestParam(defaultValue = "10") Integer pageSize,
                                                                @RequestParam(defaultValue = "id") String sortBy) {
         List<AirportFullDto> listOfAirport = airportService.findAllAirports(pageNumber, pageSize, sortBy);
 

@@ -12,6 +12,10 @@ public class HotelCreateDto {
     @NotBlank(message = "Name is mandatory")
     private City cityId;
 
+    private Integer numberOfStars;
+
+    private String description;
+
     public String getName() {
         return name;
     }
@@ -20,6 +24,28 @@ public class HotelCreateDto {
         this.name = name;
     }
 
+    public City getCityId() {
+        return cityId;
+    }
 
+    public void setCityId(City cityId) {
+        this.cityId = cityId;
+    }
+
+    public Integer getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(Integer numberOfStars) {
+        this.numberOfStars = numberOfStars;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
 

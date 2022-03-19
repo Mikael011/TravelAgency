@@ -14,4 +14,6 @@ public interface CityRepository extends PagingAndSortingRepository<City, Integer
     Optional<City> findByName(String name);
 
     Optional<City> findCityByCountryId( Integer countryId);
+
+    City findCityById(Integer id);
 }
