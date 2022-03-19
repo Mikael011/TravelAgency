@@ -1,8 +1,13 @@
 package com.sda.travelAgency.service.tour;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.tour.TourCreateDto;
 import com.sda.travelAgency.dto.tour.TourFullDto;
 import com.sda.travelAgency.exception.CustomException;
+import com.sda.travelAgency.mapper.ReservationMapper;
 import com.sda.travelAgency.mapper.TourMapper;
+import com.sda.travelAgency.model.Reservation;
 import com.sda.travelAgency.model.Tour;
 import com.sda.travelAgency.repository.TourRepository;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +25,15 @@ public class TourServiceImpl implements TourService{
     public TourServiceImpl(TourRepository tourRepository) {
         this.tourRepository = tourRepository;
     }
+
+    @Override
+    public TourFullDto create(TourCreateDto tourCreateDto) {
+        Tour tour = TourMapper.tourToEntity(tourCreateDto);
+        Tour savedTour = tourRepository.save(tour);
+
+        return TourMapper.tourFullDto(savedTour);
+    }
+
     @Override
     public TourFullDto findTourById(Integer id) {
        Tour tour  = tourRepository.findById(id).orElseThrow(() ->

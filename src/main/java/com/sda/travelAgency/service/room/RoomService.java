@@ -1,11 +1,14 @@
 package com.sda.travelAgency.service.room;
 
+import com.sda.travelAgency.dto.room.RoomCreateDto;
 import com.sda.travelAgency.dto.room.RoomFullDto;
 import com.sda.travelAgency.model.Room;
 
 import java.util.List;
 
 public interface RoomService {
+
+    RoomFullDto create(RoomCreateDto roomCreateDto);
 
     RoomFullDto findRoomById(Integer id);
 

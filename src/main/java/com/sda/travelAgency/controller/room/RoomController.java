@@ -1,5 +1,8 @@
 package com.sda.travelAgency.controller.room;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.room.RoomCreateDto;
 import com.sda.travelAgency.dto.room.RoomFullDto;
 import com.sda.travelAgency.service.room.RoomService;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,13 @@ public class RoomController {
 
     public RoomController(RoomService roomService) {
         this.roomService = roomService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<RoomFullDto> create(@RequestParam RoomCreateDto roomCreateDto) {
+        RoomFullDto roomFullDto = roomService.create((roomCreateDto));
+
+        return ResponseEntity.ok(roomFullDto);
     }
 
     @GetMapping("/findRoomById")

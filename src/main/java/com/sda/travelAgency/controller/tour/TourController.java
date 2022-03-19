@@ -1,5 +1,8 @@
 package com.sda.travelAgency.controller.tour;
 
+import com.sda.travelAgency.dto.reservation.ReservationCreateDto;
+import com.sda.travelAgency.dto.reservation.ReservationFullDto;
+import com.sda.travelAgency.dto.tour.TourCreateDto;
 import com.sda.travelAgency.dto.tour.TourFullDto;
 import com.sda.travelAgency.service.tour.TourService;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,13 @@ public class TourController {
 
     public TourController(TourService tourService) {
         this.tourService = tourService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<TourFullDto> create(@RequestParam TourCreateDto tourCreateDto) {
+        TourFullDto tourFullDto = tourService.create(tourCreateDto);
+
+        return ResponseEntity.ok(tourFullDto);
     }
 
     @GetMapping("/findAll")
