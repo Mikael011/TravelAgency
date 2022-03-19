@@ -2,9 +2,6 @@ package com.sda.travelAgency.service.reservation;
 
 import com.sda.travelAgency.dto.reservation.ReservationFullDto;
 import com.sda.travelAgency.model.Reservation;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Date;
 import java.util.List;
 
 public interface ReservationService {

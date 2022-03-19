@@ -12,6 +12,4 @@ public interface HotelRepository extends PagingAndSortingRepository<Hotel, Integ
 
     Optional<Hotel> findByName(String name);
 
-
-
 }
