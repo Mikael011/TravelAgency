@@ -1,5 +1,7 @@
 package com.sda.travelAgency.dto.airport;
 
+import com.sda.travelAgency.model.City;
+
 public class AirportFullDto {
 
     private Integer id;
@@ -26,7 +28,7 @@ public class AirportFullDto {
         return cityId;
     }
 
-    public void setCityId(Integer cityId) {
+    public void setCity(City city) {
         this.cityId = cityId;
     }
 }

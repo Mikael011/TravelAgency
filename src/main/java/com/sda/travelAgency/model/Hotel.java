@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -13,12 +14,11 @@ import javax.persistence.*;
 @Data
 public class Hotel {
 
-    @javax.persistence.Id // TODO: 3/15/2022 asta pentru ce e?
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "hotel_name")
-
     private String name;
 
     @Column(name = "numberOfStars")
@@ -27,9 +27,13 @@ public class Hotel {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel")
+    private Set<Room> roomSet;
+
+    @ManyToOne(cascade = CascadeType.ALL)// TODO: 3/19/2022 ?
     @JoinColumn(name = "city_id", referencedColumnName = "id")
-    private City cityId;
+    private City city;
+
 
 }
 

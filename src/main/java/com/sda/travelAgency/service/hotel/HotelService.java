@@ -1,12 +1,15 @@
 package com.sda.travelAgency.service.hotel;
 
 
+import com.sda.travelAgency.dto.hotel.HotelCreateDto;
 import com.sda.travelAgency.dto.hotel.HotelFullDto;
 import com.sda.travelAgency.model.Hotel;
 
 import java.util.List;
 
 public interface HotelService {
+
+    HotelFullDto create(HotelCreateDto hotelCreateDto);
 
 //    HotelFullDto findHotelById(Integer id);
 

@@ -16,8 +16,8 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(name = "city_id")
-    private Integer cityId;
+    @ManyToOne
+    private City city;
 
     @Column(name = "airport_name")
     private String name;

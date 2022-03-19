@@ -1,5 +1,6 @@
 package com.sda.travelAgency.controller.hotel;
 
+import com.sda.travelAgency.dto.hotel.HotelCreateDto;
 import com.sda.travelAgency.dto.hotel.HotelFullDto;
 import com.sda.travelAgency.service.hotel.HotelService;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,13 @@ public class HotelController {
 
     public HotelController(HotelService hotelService) {
         this.hotelService = hotelService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<HotelFullDto> createHotel(@RequestBody HotelCreateDto hotelCreateDto) {
+        HotelFullDto hotelFullDto = hotelService.create(hotelCreateDto);
+
+        return ResponseEntity.ok(hotelFullDto);
     }
 
     @GetMapping("/findAll")
