@@ -25,4 +25,7 @@ public class Room {
     @Column(name = "room_description")
     private String description;
 
+    @ManyToOne
+    private Hotel hotel;
+
 }

@@ -23,4 +23,10 @@ public class City {
     @ManyToOne
     private Country country;
 
+    @OneToMany(mappedBy = "city")
+    private Set<Airport> airports;
+
+    @OneToMany(mappedBy = "city")
+    private Set<Hotel> hotels;
+
 }

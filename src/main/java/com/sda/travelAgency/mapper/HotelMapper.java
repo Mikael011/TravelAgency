@@ -16,7 +16,7 @@ public class HotelMapper {
         HotelFullDto hotelFullDto = new HotelFullDto();
         hotelFullDto.setId(hotel.getId());
         hotelFullDto.setName(hotel.getName());
-        hotelFullDto.setCity(hotel.getCityId());
+        hotelFullDto.setCity(hotel.getCity());
         return hotelFullDto;
     }
 }

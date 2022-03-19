@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.hotel;
 
+import com.sda.travelAgency.dto.hotel.HotelCreateDto;
 import com.sda.travelAgency.dto.hotel.HotelFullDto;
 import com.sda.travelAgency.mapper.HotelMapper;
 import com.sda.travelAgency.model.Hotel;
@@ -22,6 +23,13 @@ public class HotelServiceImpl implements HotelService {
     }
 
 
+    @Override
+    public HotelFullDto create(HotelCreateDto hotelCreateDto) {
+        Hotel hotel = HotelMapper.hotelToEntity(hotelCreateDto);
+        Hotel savedHotel = hotelRepository.save(hotel);
+
+        return HotelMapper.hotelToFullDto(savedHotel);
+    }
 
     @Override
     public void saveAllHotels(List<Hotel> listOfHotels) {

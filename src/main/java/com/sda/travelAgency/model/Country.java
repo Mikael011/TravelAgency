@@ -17,7 +17,7 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "city_name")
+    @Column(name = "country_name")
     private String name;
 
     @OneToMany(mappedBy = "country")

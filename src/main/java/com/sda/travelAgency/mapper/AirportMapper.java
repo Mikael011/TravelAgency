@@ -17,7 +17,7 @@ public class AirportMapper {
         AirportFullDto airportFullDto = new AirportFullDto();
         airportFullDto.setId(airport.getId());
         airportFullDto.setName(airport.getName());
-        airportFullDto.setCityId(airport.getCityId());
+        airportFullDto.setCity(airport.getCity());
 
         return airportFullDto;
     }
