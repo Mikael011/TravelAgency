@@ -17,7 +17,7 @@ public class Airport {
     private Integer id;
     
     @ManyToOne
-    private City city;
+    public City city;
 
     @Column(name = "airport_name")
     private String name;

@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.country;
 
+import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.exception.CustomException;
@@ -64,5 +65,10 @@ public class CountryServiceImpl implements CountryService {
         });
 
         return returnList;
+    }
+
+    @Override
+    public List<AirportFullDto> getAirportsByCountry(String country) {
+        return null;
     }
 }

@@ -3,10 +3,11 @@ package com.sda.travelAgency.controller.airport;
 import com.sda.travelAgency.dto.airport.AirportCreateDto;
 import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.service.airport.AirportService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.security.Principal;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/api/v1/airport")
 @ControllerAdvice
 public class AirportController {
+
 
     private final AirportService airportService;
 
@@ -24,7 +26,7 @@ public class AirportController {
     @PostMapping("/create")
     public ResponseEntity<AirportFullDto> createAirport(@RequestBody AirportCreateDto airportCreateDto, Principal principal) {
 
-//        System.out.println(principal.getName() + " has created a new airport");
+       System.out.println(principal.getName() + " has created a new airport");
 
         AirportFullDto airportFullDto = airportService.create(airportCreateDto);
 
@@ -55,4 +57,9 @@ public class AirportController {
         return ResponseEntity.ok(airportFullDto);
     }
 
+        @GetMapping("/findAirportsByCountry")
+    public ResponseEntity<List<AirportFullDto>> getAirportsByCountry(@RequestParam Integer countryId) {
+            List<AirportFullDto> listOfCountry = airportService.getAirportsByCountry(countryId);
+            return ResponseEntity.ok(listOfCountry);
+        }
 }

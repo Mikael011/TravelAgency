@@ -20,8 +20,8 @@ public class City {
     @Column(name = "city_name")
     private String name;
 
-    @ManyToOne
-    private Country country;
+    @OneToOne
+    public Country country;
 
     @OneToMany(mappedBy = "city")
     private Set<Airport> airports;
