@@ -4,6 +4,7 @@ import com.sda.travelAgency.dto.airport.AirportCreateDto;
 import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.exception.CustomException;
 import com.sda.travelAgency.mapper.AirportMapper;
+import com.sda.travelAgency.mapper.CityMapper;
 import com.sda.travelAgency.model.Airport;
 import com.sda.travelAgency.model.City;
 import com.sda.travelAgency.repository.AirportRepository;
@@ -34,14 +35,6 @@ public class AirportsServiceImpl implements AirportService {
         Airport savedAirport = airportRepository.save(airport);
 
         return AirportMapper.airportToFullDto(savedAirport);
-    }
-
-    @Override
-    public AirportFullDto findByCityId(Integer id) {
-        Airport airport = airportRepository.findByCityId(id).orElseThrow(() ->
-                new CustomException("Airport with id " + id + " not found!"));
-
-        return  AirportMapper.airportToFullDto(airport);
     }
 
     @Override
@@ -76,4 +69,34 @@ public class AirportsServiceImpl implements AirportService {
         airportFullDto.setCity(city);
     }
 
+    @Override
+    public AirportFullDto findByCityId(Integer id) {
+        Airport airport = airportRepository.findByCityId(id).orElseThrow(() ->
+                new CustomException("Airport with id " + id + " not found!"));
+
+        return  AirportMapper.airportToFullDto(airport);
+    }
+
+    @Override
+    public List<AirportFullDto> getAirportsByCountry(Integer countryId) {
+        List<Airport> airports =  (List<Airport>) airportRepository.findAll();
+        List<AirportFullDto> returnList = new ArrayList<>();
+
+        airports.forEach(x -> {
+            if(x.city.country.getId() == countryId) {
+                returnList.add(AirportMapper.airportToFullDto(x));
+            }
+        });
+
+        return returnList;
+    }
+
+//    @Override
+//    public List<AirportFullDto> getAirportsByCountry(String country) {
+//        List<AirportFullDto> returnList = new ArrayList<>();
+//        cityRepository.findAll().forEach(entity -> {
+//            returnList.add(CityMapper.cityFullDto(entity));
+//        });
+//return returnList;
+//    }
 }

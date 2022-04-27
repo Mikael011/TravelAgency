@@ -1,5 +1,6 @@
 package com.sda.travelAgency.service.country;
 
+import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
 import com.sda.travelAgency.model.Country;
@@ -18,5 +19,5 @@ public interface CountryService {
 
     List<CountryFullDto> findAllCountries();
 
-
+    List<AirportFullDto> getAirportsByCountry(String country);
 }

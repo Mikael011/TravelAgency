@@ -20,7 +20,7 @@ public class Country {
     @Column(name = "country_name")
     private String name;
 
-    @OneToMany(mappedBy = "country")
-    private Set<City> city;
+//    @OneToMany(mappedBy = "country")
+//    private Set<City> city;
 
 }
