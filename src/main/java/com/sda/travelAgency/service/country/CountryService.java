@@ -18,6 +18,4 @@ public interface CountryService {
     List<CountryFullDto> findAllCountries(Integer pageNumber, Integer pageSize, String sortBy);
 
     List<CountryFullDto> findAllCountries();
-
-    List<AirportFullDto> getAirportsByCountry(String country);
 }

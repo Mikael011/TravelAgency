@@ -66,9 +66,4 @@ public class CountryServiceImpl implements CountryService {
 
         return returnList;
     }
-
-    @Override
-    public List<AirportFullDto> getAirportsByCountry(String country) {
-        return null;
-    }
 }

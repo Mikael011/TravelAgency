@@ -1,8 +1,10 @@
 package com.sda.travelAgency.controller.country;
 
 
+import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.dto.country.CountryCreateDto;
 import com.sda.travelAgency.dto.country.CountryFullDto;
+import com.sda.travelAgency.service.airport.AirportService;
 import com.sda.travelAgency.service.country.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +19,10 @@ import java.util.List;
 public class CountryController {
 
     private final CountryService countryService;
-
-    public CountryController(CountryService countryService) {
+    private final AirportService airportService;
+    public CountryController(CountryService countryService, AirportService airportService) {
         this.countryService = countryService;
+        this.airportService = airportService;
     }
 
     @PostMapping("/create")
@@ -35,6 +38,11 @@ public class CountryController {
                                                                @RequestParam(defaultValue = "10") Integer pageSize,
                                                                @RequestParam(defaultValue = "id") String sortBy) {
         List<CountryFullDto> listOfCountry = countryService.findAllCountries(pageNumber, pageSize, sortBy);
+        return ResponseEntity.ok(listOfCountry);
+    }
+    @GetMapping("/findAirportsByCountry")
+    public ResponseEntity<List<AirportFullDto>> getAirportsByCountry(@RequestParam Integer countryId) {
+        List<AirportFullDto> listOfCountry = airportService.getAirportsByCountry(countryId);
         return ResponseEntity.ok(listOfCountry);
     }
 }

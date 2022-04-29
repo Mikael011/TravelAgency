@@ -1,5 +1,6 @@
 package com.sda.travelAgency.repository;
 
+import com.sda.travelAgency.dto.airport.AirportFullDto;
 import com.sda.travelAgency.model.Airport;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,4 @@ import java.util.Optional;
 public interface AirportRepository extends PagingAndSortingRepository<Airport, Integer> {
 
     Optional<Airport> findByCityId(Integer id);
-
-//   List<Airport> getAirportsByCountry(Integer countryId);
 }

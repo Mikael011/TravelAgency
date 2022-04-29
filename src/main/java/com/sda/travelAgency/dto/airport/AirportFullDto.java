@@ -1,12 +1,13 @@
 package com.sda.travelAgency.dto.airport;
 
+import com.sda.travelAgency.dto.city.CityFullDto;
 import com.sda.travelAgency.model.City;
 
 public class AirportFullDto {
 
     private Integer id;
     private String name;
-    private City city;
+    private CityFullDto city;
 
     public Integer getId() {
         return id;
@@ -24,11 +25,11 @@ public class AirportFullDto {
         this.name = name;
     }
 
-    public City getCityId() {
-        return city;
+    public int getCityId() {
+        return city.getId();
     }
 
-    public void setCity(City city) {
+    public void setCity(CityFullDto city) {
         this.city = city;
     }
 }

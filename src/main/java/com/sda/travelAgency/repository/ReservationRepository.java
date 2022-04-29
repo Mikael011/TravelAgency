@@ -2,11 +2,13 @@ package com.sda.travelAgency.repository;
 
 import com.sda.travelAgency.model.Reservation;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.awt.geom.RectangularShape;
 import java.util.Date;
 import java.util.Optional;
 
+@Repository
 public interface ReservationRepository extends PagingAndSortingRepository<Reservation, Integer> {
 
     // private Integer id;

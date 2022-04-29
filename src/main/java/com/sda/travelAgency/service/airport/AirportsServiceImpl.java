@@ -65,8 +65,9 @@ public class AirportsServiceImpl implements AirportService {
     @Override
     public void addAirportsToCity(Integer airportId, Integer cityId) {
         City city = cityRepository.findCityById(cityId);
-        AirportFullDto airportFullDto = new AirportFullDto();
-        airportFullDto.setCity(city);
+        Airport airport = airportRepository.findById(airportId).get();
+        airport.setCity(city);
+        airportRepository.save(airport);
     }
 
     @Override
@@ -84,7 +85,8 @@ public class AirportsServiceImpl implements AirportService {
 
         airports.forEach(x -> {
             if(x.city.country.getId() == countryId) {
-                returnList.add(AirportMapper.airportToFullDto(x));
+                AirportFullDto adto = AirportMapper.airportToFullDto(x);
+                returnList.add(adto);
             }
         });
 
