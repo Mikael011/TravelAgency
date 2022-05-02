@@ -25,15 +25,6 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public CityFullDto create(CityCreateDto cityCreateDto) {
-        City city = CityMapper.cityToEntity(cityCreateDto);
-        City savedCity = cityRepository.save(city);
-
-        return CityMapper.cityFullDto(savedCity);
-    }
-
-    // SonarList disabled for this method
-    @Override
     public CityFullDto findCityByName(String name) {
         City city = cityRepository.findByName(name).orElseThrow(() ->
                 new CustomException("Continent with name " + name +" not found!"));
@@ -51,6 +42,15 @@ public class CityServiceImpl implements CityService {
 
         return returnList;
     }
+
+    @Override
+    public CityFullDto create(CityCreateDto cityCreateDto) {
+        City city = CityMapper.cityToEntity(cityCreateDto);
+        City savedCity = cityRepository.save(city);
+
+        return CityMapper.cityFullDto(savedCity);
+    }
+    // SonarList disabled for this method
 
     @Override
     public List<CityFullDto> findAllCities() {

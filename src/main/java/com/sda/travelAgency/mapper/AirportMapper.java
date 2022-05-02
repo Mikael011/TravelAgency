@@ -23,7 +23,6 @@ public class AirportMapper {
         airportFullDto.setName(airport.getName());
         CityFullDto cityDto = CityMapper.cityFullDto(airport.city);
         airportFullDto.setCity(cityDto);
-
         return airportFullDto;
     }
 }

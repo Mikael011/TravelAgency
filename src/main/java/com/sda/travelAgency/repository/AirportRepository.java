@@ -12,4 +12,8 @@ import java.util.Optional;
 public interface AirportRepository extends PagingAndSortingRepository<Airport, Integer> {
 
     Optional<Airport> findByCityId(Integer id);
+    List<Airport> findByCity_NameStartingWith(String searchString);
+    List<Airport> findByCity_Country_NameStartingWith(String searchString);
+
+
 }

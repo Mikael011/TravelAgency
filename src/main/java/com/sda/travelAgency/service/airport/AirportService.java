@@ -21,4 +21,5 @@ public interface AirportService {
     void addAirportsToCity(Integer airportId, Integer cityId);
 
     List<AirportFullDto> getAirportsByCountry(Integer countryId);
+    List<AirportFullDto> getAirportsByText(String searchString);
 }

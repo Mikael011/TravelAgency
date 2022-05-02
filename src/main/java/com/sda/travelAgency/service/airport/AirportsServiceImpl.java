@@ -28,10 +28,27 @@ public class AirportsServiceImpl implements AirportService {
         this.cityRepository = cityRepository;
     }
 
+    @Override
+    public List<AirportFullDto> findAllAirports(Integer pageNumber, Integer pageSize, String sortBy) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
+        List<AirportFullDto> returnList = new ArrayList<>();
+        airportRepository.findAll(pageable).forEach(entity -> {
+            returnList.add(AirportMapper.airportToFullDto(entity));
+        });
+        return returnList;
+    }
+
+    @Override
+    public AirportFullDto findByCityId(Integer id) {
+        Airport airport = airportRepository.findByCityId(id).orElseThrow(() ->
+                new CustomException("Airport with id " + id + " not found!"));
+
+        return AirportMapper.airportToFullDto(airport);
+    }
 
     @Override
     public AirportFullDto create(AirportCreateDto airportCreateDto) {
-        Airport airport= AirportMapper.airportToEntity(airportCreateDto);
+        Airport airport = AirportMapper.airportToEntity(airportCreateDto);
         Airport savedAirport = airportRepository.save(airport);
 
         return AirportMapper.airportToFullDto(savedAirport);
@@ -41,16 +58,6 @@ public class AirportsServiceImpl implements AirportService {
     public void saveAllAirports(List<Airport> listOfAirports) {
         airportRepository.saveAll(listOfAirports);
         System.out.println("All airports are created.");
-    }
-
-    @Override
-    public List<AirportFullDto> findAllAirports(Integer pageNumber, Integer pageSize, String sortBy) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy));
-        List<AirportFullDto> returnList = new ArrayList<>();
-        airportRepository.findAll(pageable).forEach(entity -> {
-            returnList.add(AirportMapper.airportToFullDto(entity));
-        });
-        return returnList;
     }
 
     @Override
@@ -71,20 +78,12 @@ public class AirportsServiceImpl implements AirportService {
     }
 
     @Override
-    public AirportFullDto findByCityId(Integer id) {
-        Airport airport = airportRepository.findByCityId(id).orElseThrow(() ->
-                new CustomException("Airport with id " + id + " not found!"));
-
-        return  AirportMapper.airportToFullDto(airport);
-    }
-
-    @Override
     public List<AirportFullDto> getAirportsByCountry(Integer countryId) {
-        List<Airport> airports =  (List<Airport>) airportRepository.findAll();
+        List<Airport> airports = (List<Airport>) airportRepository.findAll();
         List<AirportFullDto> returnList = new ArrayList<>();
 
         airports.forEach(x -> {
-            if(x.city.country.getId() == countryId) {
+            if (x.city.country.getId() == countryId) {
                 AirportFullDto adto = AirportMapper.airportToFullDto(x);
                 returnList.add(adto);
             }
@@ -93,12 +92,20 @@ public class AirportsServiceImpl implements AirportService {
         return returnList;
     }
 
-//    @Override
-//    public List<AirportFullDto> getAirportsByCountry(String country) {
-//        List<AirportFullDto> returnList = new ArrayList<>();
-//        cityRepository.findAll().forEach(entity -> {
-//            returnList.add(CityMapper.cityFullDto(entity));
-//        });
-//return returnList;
-//    }
+    @Override
+    public List<AirportFullDto> getAirportsByText(String searchString) {
+        List<AirportFullDto> returnList = new ArrayList<>();
+        List<Airport> cityResultList = airportRepository.findByCity_NameStartingWith(searchString);
+        List<Airport> countryResultList = airportRepository.findByCity_Country_NameStartingWith(searchString);
+
+        cityResultList.forEach(x -> {
+            AirportFullDto adto = AirportMapper.airportToFullDto(x);
+            returnList.add(adto);
+        });
+        countryResultList.forEach(x -> {
+            AirportFullDto adto = AirportMapper.airportToFullDto(x);
+            returnList.add(adto);
+        });
+        return returnList;
+    }
 }

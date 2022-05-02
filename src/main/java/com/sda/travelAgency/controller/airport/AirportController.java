@@ -25,12 +25,15 @@ public class AirportController {
 
     @PostMapping("/create")
     public ResponseEntity<AirportFullDto> createAirport(@RequestBody AirportCreateDto airportCreateDto, Principal principal) {
-
        System.out.println(principal.getName() + " has created a new airport");
-
         AirportFullDto airportFullDto = airportService.create(airportCreateDto);
-
         return ResponseEntity.ok(airportFullDto);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<AirportFullDto>> search(@RequestParam String searchString) {
+        List<AirportFullDto> listOfCountry = airportService.getAirportsByText(searchString);
+        return ResponseEntity.ok(listOfCountry);
     }
 
     @PostMapping("/addAirportToCity")
